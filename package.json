@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "dotenv -e .env.develop -- tsnd --cls --respawn src/server.ts",
-    "test:unit": "dotenv -e .env.test -- jest --config jest.config.unit.ts --verbose --runInBand",
+    "test:unitary": "dotenv -e .env.test -- jest --config jest.config.unitary.ts --verbose --runInBand",
     "test:integration": "dotenv -e .env.test -- jest --config jest.config.integration.ts --verbose --runInBand",
     "migrate:dev": "dotenv -e .env.develop -- npx prisma migrate dev",
     "migrate:test": "dotenv -e .env.test -- npx prisma migrate dev"
@@ -28,12 +28,9 @@
   },
   "dependencies": {
     "@prisma/client": "^5.14.0",
-    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
-    "dotenv-cli": "^7.4.2",
     "express": "^4.19.2",
     "express-async-errors": "^3.1.1",
-    "helmet": "^7.1.0",
     "reflect-metadata": "^0.2.2",
     "tsyringe": "^4.8.0",
     "zod": "^3.23.8"

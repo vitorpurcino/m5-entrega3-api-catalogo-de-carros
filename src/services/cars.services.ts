@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import { injectable } from "tsyringe";
 import {
   TCars,
@@ -21,10 +22,10 @@ export class CarsServices {
     const response = await prisma.cars.findFirst({ where: { id: carId } });
     return carsSchemas.parse(response);
   }
-  async update(body: TUpdateBodyCars, car: TCars): Promise<TCars> {
+  async update(body: TUpdateBodyCars, carId: string): Promise<TCars> {
     const response = await prisma.cars.update({
-      where: { id: car.id },
       data: body,
+      where: { id: carId },
     });
 
     return response;

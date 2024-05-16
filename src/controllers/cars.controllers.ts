@@ -18,7 +18,7 @@ export class CarsControllers {
     return res.status(200).json(response)
   }
   async update(req: Request, res: Response) {
-    const response = await this.services.update(req.body, res.locals.car);
+    const response = await this.services.update(req.body, res.locals.car.id);
     return res.status(200).json(response)
   }
   async delete(req: Request, res: Response) {
