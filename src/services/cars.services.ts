@@ -21,13 +21,10 @@ export class CarsServices {
     const response = await prisma.cars.findFirst({ where: { id: carId } });
     return carsSchemas.parse(response);
   }
-  async update(body: TUpdateBodyCars, carId: string): Promise<TCars> {
-    const car = await prisma.cars.findFirst({ where: { id: carId } });
-    const updateCar = { ...car, ...body };
-
+  async update(body: TUpdateBodyCars, car: TCars): Promise<TCars> {
     const response = await prisma.cars.update({
-      where: { id: carId },
-      data: updateCar,
+      where: { id: car.id },
+      data: body,
     });
 
     return response;

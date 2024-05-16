@@ -11,15 +11,14 @@ export class CarsControllers {
     return res.status(201).json(response)
   }
   async getUnique(req: Request, res: Response) {
-    const response = await this.services.getUnique(req.params.id);
-    return res.status(200).json(response)
+    return res.status(200).json(res.locals.car)
   }
   async getMany(req: Request, res: Response) {
     const response = await this.services.getMany();
     return res.status(200).json(response)
   }
   async update(req: Request, res: Response) {
-    const response = await this.services.update(req.body, req.params.id);
+    const response = await this.services.update(req.body, res.locals.car);
     return res.status(200).json(response)
   }
   async delete(req: Request, res: Response) {
