@@ -10,6 +10,7 @@ export const carsSchemas = z.object({
   brand: z.string().min(1).max(30),
   year: z.number().positive().gte(1769).lte(year),
   km: z.number().nonnegative(),
+  userId: z.string().uuid()
 });
 
 export const carsCreateBodySchema = carsSchemas.omit({ id: true });
