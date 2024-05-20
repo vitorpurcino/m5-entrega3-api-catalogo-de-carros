@@ -2,6 +2,7 @@ import "reflect-metadata";
 import { injectable } from "tsyringe";
 import {
   TReturnUser,
+  TUser,
   TUserBodyLogin,
   TUserCreateBody,
   TUserReturnToken,
@@ -21,12 +22,9 @@ export class UsersServices {
 
     return userReturnSchema.parse(response);
   }
-  async login(body: TUserBodyLogin): Promise<TUserReturnToken> {
-    const user = await prisma.user.findFirst({
-      where: { email: body.email },
-    });
+  async login(user: TUser): Promise<TUserReturnToken> {
 
-    const token = jwt.sign({ id: user?.id }, process.env.JWT_SECRET as string, {
+    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET as string, {
       expiresIn: "1h",
     });
 
@@ -35,7 +33,7 @@ export class UsersServices {
       user: userReturnSchema.parse(user),
     };
   }
-  async get(user: object): Promise<TReturnUser> {
+  async getUser(user: TUser): Promise<TReturnUser> {
     return userReturnSchema.parse(user);
   }
 }

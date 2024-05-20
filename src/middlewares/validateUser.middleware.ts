@@ -15,7 +15,7 @@ export class ValidateUser {
 
     const verifyPassword = await bcrypt.compare(req.body.password, user.password);
 
-    if (verifyPassword) {
+    if (!verifyPassword) {
         throw new AppError(401, "E-mail and password doesn't match")
     }
 

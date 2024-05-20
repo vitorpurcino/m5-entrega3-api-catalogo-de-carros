@@ -8,7 +8,7 @@ export class ValidateEmail {
       where: { email: req.body.email },
     });
 
-    if (!user) {
+    if (user) {
       throw new AppError(409, "E-mail already registered");
     }
     next();

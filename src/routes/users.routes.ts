@@ -1,6 +1,6 @@
 import { container } from "tsyringe";
 import { UsersServices } from "../services/users.services";
-import { UserControllers } from "../controllers/users.controllers";
+import { UsersControllers } from "../controllers/users.controllers";
 import { Router } from "express";
 import { ValidateToken } from "../middlewares/validateToken.middleware";
 import { ValidateBodySchema } from "../middlewares/validateBody.middleware";
@@ -12,7 +12,7 @@ import { ValidateEmail } from "../middlewares/validateEmail.middleware";
 import { ValidateUser } from "../middlewares/validateUser.middleware";
 
 container.registerSingleton("UsersServices", UsersServices);
-const userControllers = container.resolve(UserControllers);
+const userControllers = container.resolve(UsersControllers);
 
 export const usersRoutes = Router();
 
@@ -33,5 +33,5 @@ usersRoutes.post(
   }
 );
 usersRoutes.get("/", ValidateToken.execute, (req, res) => {
-  userControllers.get(req, res);
+  userControllers.getUser(req, res);
 });
