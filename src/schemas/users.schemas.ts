@@ -8,6 +8,14 @@ export const userSchema = z.object({
 });
 
 export const userCreateBodySchema = userSchema.omit({ id: true });
+export const userReturnSchema = userSchema.omit({ password: true });
+export const userLoginSchema = userSchema.pick({ email: true, password: true });
 
 export type TUser = z.infer<typeof userSchema>;
+export type TReturnUser = z.infer<typeof userReturnSchema>;
 export type TUserCreateBody = z.infer<typeof userCreateBodySchema>;
+export type TUserBodyLogin = z.infer<typeof userLoginSchema>;
+export type TUserReturnToken = {
+  accessToken: string;
+  user: TReturnUser;
+};

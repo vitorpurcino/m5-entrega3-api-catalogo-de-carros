@@ -2,7 +2,7 @@ import { Router } from "express";
 import { container } from "tsyringe";
 import { CarsServices } from "../services/cars.services";
 import { CarsControllers } from "../controllers/cars.controllers";
-import { ValidateBodySchema } from "../middlewares/validateBody.middlewares";
+import { ValidateBodySchema } from "../middlewares/validateBody.middleware";
 import {
   carsCreateBodySchema,
   carsUpdateBodySchema,
