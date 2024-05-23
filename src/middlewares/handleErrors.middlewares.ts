@@ -18,9 +18,7 @@ export class HandleErrors {
       return res.status(400).json(error);
     }
 
-    if (error instanceof JsonWebTokenError) {
-      console.log(error);
-      
+    if (error instanceof JsonWebTokenError) {     
       return res.status(401).json({ message: error.message });
     }
 

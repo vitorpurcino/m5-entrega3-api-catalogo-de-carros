@@ -3,7 +3,6 @@ import { injectable } from "tsyringe";
 import {
   TReturnUser,
   TUser,
-  TUserBodyLogin,
   TUserCreateBody,
   TUserReturnToken,
   userReturnSchema,
@@ -23,7 +22,6 @@ export class UsersServices {
     return userReturnSchema.parse(response);
   }
   async login(user: TUser): Promise<TUserReturnToken> {
-
     const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET as string, {
       expiresIn: "1h",
     });
