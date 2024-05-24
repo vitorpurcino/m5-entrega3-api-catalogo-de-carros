@@ -14,7 +14,7 @@ export class CarsControllers {
     return res.status(200).json(res.locals.car)
   }
   async getMany(req: Request, res: Response) {
-    const response = await this.services.getMany();
+    const response = await this.services.getMany(req.params.userId);
     return res.status(200).json(response)
   }
   async update(req: Request, res: Response) {

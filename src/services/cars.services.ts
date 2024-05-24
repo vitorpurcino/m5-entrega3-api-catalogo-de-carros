@@ -14,8 +14,16 @@ export class CarsServices {
     const response = await prisma.cars.create({ data: body });
     return response;
   }
-  async getMany(): Promise<TCars[]> {
-    const response = await prisma.cars.findMany();
+  async getMany(userId?: string): Promise<TCars[]> {
+    let response;
+    if (userId) {
+      response = await prisma.cars.findMany({
+        where: { userId: userId },
+        include: { user: true },
+      });
+    } else {
+      response = await prisma.cars.findMany();
+    }
     return response;
   }
   async getUnique(carId: string): Promise<TCars> {
@@ -26,6 +34,7 @@ export class CarsServices {
     const response = await prisma.cars.update({
       data: body,
       where: { id: carId },
+      include: {user: true}
     });
 
     return response;

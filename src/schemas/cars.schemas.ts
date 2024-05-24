@@ -14,7 +14,7 @@ export const carsSchemas = z.object({
 });
 
 export const carsCreateBodySchema = carsSchemas.omit({ id: true });
-export const carsUpdateBodySchema = carsSchemas.partial().omit({ id: true });
+export const carsUpdateBodySchema = carsSchemas.partial().omit({ id: true, userId: true });
 
 export type TCars = z.infer<typeof carsSchemas>;
 export type TCreateBodyCars = z.infer<typeof carsCreateBodySchema>;

@@ -12,6 +12,10 @@ export class ValidateIDCar {
       throw new AppError(404, "Car not found.");
     }
 
+    if (car.userId !== res.locals.user.id) {
+      throw new AppError(403, "User must be the car owner")
+    }
+
     res.locals.car = car;
 
     next()
