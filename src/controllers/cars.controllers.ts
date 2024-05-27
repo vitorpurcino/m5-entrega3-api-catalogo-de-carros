@@ -7,11 +7,12 @@ export class CarsControllers {
   constructor(@inject("CarsServices") private services: CarsServices) {}
 
   async create(req: Request, res: Response) {
-    const response = await this.services.create(req.body);
+    const response = await this.services.create(req.body, res.locals.user.id);
     return res.status(201).json(response)
   }
   async getUnique(req: Request, res: Response) {
-    return res.status(200).json(res.locals.car)
+    const response = await this.services.getUnique(res.locals.car)
+    return res.status(200).json(response)
   }
   async getMany(req: Request, res: Response) {
     const response = await this.services.getMany(req.params.userId);

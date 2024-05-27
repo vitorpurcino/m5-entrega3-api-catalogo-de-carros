@@ -20,9 +20,8 @@ model Cars {
   brand       String
   year        Int
   km          Int
-
-  userId String
-  user   User   @relation(fields: [userId], references: [id])
+  userId      String
+  user        User    @relation(fields: [userId], references: [id])
 }
 
 model User {

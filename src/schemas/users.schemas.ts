@@ -9,7 +9,7 @@ export const userSchema = z.object({
 
 export const userCreateBodySchema = userSchema.omit({ id: true });
 export const userReturnSchema = userSchema.omit({ password: true });
-export const userLoginSchema = userSchema.pick({ email: true, password: true });
+export const userLoginSchema = userSchema.omit({ id: true, name: true});
 
 export type TUser = z.infer<typeof userSchema>;
 export type TReturnUser = z.infer<typeof userReturnSchema>;

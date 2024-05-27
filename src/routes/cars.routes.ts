@@ -7,8 +7,8 @@ import {
   carsCreateBodySchema,
   carsUpdateBodySchema,
 } from "../schemas/cars.schemas";
-import { ValidateIDCar } from "../middlewares/validateIDCar.middleware";
 import { ValidateToken } from "../middlewares/validateToken.middleware";
+import { ValidateUserCar } from "../middlewares/validateUserCar.middleware";
 
 container.registerSingleton("CarsServices", CarsServices);
 const carsControllers = container.resolve(CarsControllers);
@@ -26,7 +26,7 @@ carsRoutes.post(
 carsRoutes.patch(
   "/:id",
   ValidateToken.execute,
-  ValidateIDCar.execute,
+  ValidateUserCar.execute,
   ValidateBodySchema.execute(carsUpdateBodySchema),
   (req, res) => {
     carsControllers.update(req, res);
@@ -35,7 +35,7 @@ carsRoutes.patch(
 carsRoutes.delete(
   "/:id",
   ValidateToken.execute,
-  ValidateIDCar.execute,
+  ValidateUserCar.execute,
   (req, res) => {
     carsControllers.delete(req, res);
   }
@@ -46,6 +46,4 @@ carsRoutes.get("/", (req, res) => {
 carsRoutes.get("/:userId", (req, res) => {
   carsControllers.getMany(req, res);
 });
-carsRoutes.get("/:id", ValidateIDCar.execute, (req, res) => {
-  carsControllers.getUnique(req, res);
-});
+

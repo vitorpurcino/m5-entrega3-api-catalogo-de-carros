@@ -10,10 +10,10 @@ export const carsSchemas = z.object({
   brand: z.string().min(1).max(30),
   year: z.number().positive().gte(1769).lte(year),
   km: z.number().nonnegative(),
-  userId: z.string().uuid()
+  userId: z.string()
 });
 
-export const carsCreateBodySchema = carsSchemas.omit({ id: true });
+export const carsCreateBodySchema = carsSchemas.omit({ id: true, userId: true });
 export const carsUpdateBodySchema = carsSchemas.partial().omit({ id: true, userId: true });
 
 export type TCars = z.infer<typeof carsSchemas>;
