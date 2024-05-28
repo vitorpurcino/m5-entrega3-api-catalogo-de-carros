@@ -6,6 +6,7 @@ export function clearToken(authorization: string) {
     token = token.replaceAll(`"`, "");
   } else {
     token = authorization?.replaceAll(`"`, "");
+    token = token.replaceAll(`'`, "");
   }
 
   return token;
