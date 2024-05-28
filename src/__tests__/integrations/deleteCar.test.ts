@@ -1,10 +1,10 @@
 import { prisma } from "../../database/prisma";
-import { createCarBodyMock } from "../mocks/cars.mock";
+import { createCarBodyMock2 } from "../mocks/cars.mock";
 import { request } from "../utils/request";
 
 describe("Integration Test: Delete a Car", () => {
   test("Registering and removing a car from the database", async () => {
-    const car = await prisma.cars.create({ data: createCarBodyMock });
+    const car = await prisma.cars.create({ data: createCarBodyMock2 });
 
     const response = await request
       .delete(`/cars/${car.id}`)

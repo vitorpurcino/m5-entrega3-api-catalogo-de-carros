@@ -7,4 +7,5 @@ export const carsExpects = (data: TCars, expectations: TCreateBodyCars) => {
   expect(data.brand).toBe(expectations.brand);
   expect(data.year).toBe(expectations.year);
   expect(data.km).toBe(expectations.km);
+  expect(data.userId).toBeDefined();
 };

@@ -1,3 +1,5 @@
+export const userId = "4c7ce00b-cdd0-4684-be8d-26e18d82506c";
+
 export const carMock = {
   id: "969bcd5b-091f-4f2f-821f-cdb80c778459",
   name: "Skyline",
@@ -5,6 +7,7 @@ export const carMock = {
   brand: "Nissan",
   year: 2004,
   km: 275000,
+  userId: "4c7ce00b-cdd0-4684-be8d-26e18d82506c",
 };
 
 export const createCarBodyMock = {
@@ -13,6 +16,15 @@ export const createCarBodyMock = {
   brand: "Nissan",
   year: 2004,
   km: 275000,
+};
+
+export const createCarBodyMock2 = {
+  name: "Skyline",
+  description: "Nissan Skyline",
+  brand: "Nissan",
+  year: 2004,
+  km: 275000,
+  userId: "4c7ce00b-cdd0-4684-be8d-26e18d82506c"
 };
 
 export const carUpdateBodyMock = {
@@ -30,6 +42,7 @@ export const newCarMock = {
   brand: "Toyota",
   year: 2000,
   km: 15000,
+  userId: "4c7ce00b-cdd0-4684-be8d-26e18d82506c",
 };
 
 export const listBodyCarsMock = [
@@ -39,6 +52,7 @@ export const listBodyCarsMock = [
     brand: "Toyota",
     year: 2000,
     km: 15000,
+    userId: "4c7ce00b-cdd0-4684-be8d-26e18d82506c",
   },
   {
     name: "Skyline",
@@ -46,6 +60,7 @@ export const listBodyCarsMock = [
     brand: "Nissan",
     year: 2004,
     km: 275000,
+    userId: "4c7ce00b-cdd0-4684-be8d-26e18d82506c",
   },
 ];
 
@@ -57,6 +72,7 @@ export const listCarsMock = [
     brand: "Toyota",
     year: 2000,
     km: 15000,
+    userId: "4c7ce00b-cdd0-4684-be8d-26e18d82506c",
   },
   {
     id: "0ec4ee18-41bb-4c70-8c86-7b7b9fbfae0c",
@@ -65,6 +81,7 @@ export const listCarsMock = [
     brand: "Nissan",
     year: 2004,
     km: 275000,
+    userId: "4c7ce00b-cdd0-4684-be8d-26e18d82506c",
   },
 ];
 
@@ -74,4 +91,5 @@ export const bodyInvalidMock = {
   brand: "Nissan",
   year: 1000,
   km: -1,
+  userId: "4c7ce00b-cdd0-4684-be8d-26e18d82506c",
 };

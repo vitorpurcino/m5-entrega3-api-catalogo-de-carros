@@ -10,7 +10,7 @@ describe("Unitary Test: Get Unique a Car", () => {
     
     prismaMock.cars.findFirst.mockResolvedValue(carMock);
 
-    const response = await carServices.getUnique(carMock.id);
+    const response = await carServices.getUnique(carMock);
 
     carsExpects(response, carMock);
   });

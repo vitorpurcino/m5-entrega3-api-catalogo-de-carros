@@ -2,14 +2,14 @@ import { prisma } from "../../database/prisma";
 import {
   bodyInvalidMock,
   carUpdateBodyMock,
-  createCarBodyMock,
+  createCarBodyMock2,
 } from "../mocks/cars.mock";
 import { carsExpects } from "../utils/carsExpects";
 import { request } from "../utils/request";
 
 describe("Integration Test: Update a Car", () => {
   test("Registering a new car", async () => {
-    const car = await prisma.cars.create({ data: createCarBodyMock });
+    const car = await prisma.cars.create({ data: createCarBodyMock2 });
     const response = await request
       .patch(`/cars/${car.id}`)
       .send(carUpdateBodyMock)
@@ -20,7 +20,7 @@ describe("Integration Test: Update a Car", () => {
   });
 
   test("Body error when trying to update car - Error 400", async () => {
-    const car = await prisma.cars.create({ data: createCarBodyMock });
+    const car = await prisma.cars.create({ data: createCarBodyMock2 });
 
     const response = await request
       .patch(`/cars/${car.id}`)
